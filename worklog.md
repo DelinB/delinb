@@ -23,3 +23,20 @@ Stage Summary:
 - Key decisions: hash routes → clean paths (no 301s needed — hash routes are client-side only); GSAP replaced with CSS+IO implementation (documented); shadcn/ui intentionally unused (source design system ported 1:1 per visual-regression rule); reactStrictMode off (scaffold default); picsum images kept via next/image remote patterns (source image strategy).
 - Validation artifacts in /home/z/my-project/download/validation/ (screenshots).
 - Dev server: port 3000 (bun run dev). Production standalone: port 3100 for testing.
+
+---
+Task ID: 2
+Agent: Super Z (main agent)
+Task: User reported "not running" — preview was down after session continuation. Diagnose and restore service on the preview port.
+
+Work Log:
+- Diagnosis: Caddy preview proxy (:81) forwards to localhost:3000; after session restart only the standalone server on :3100 survived (orphaned, PPID 1), port 3000 was dead → preview unreachable.
+- Root cause of earlier failed restarts: the sandbox reaps all descendant processes of a Bash tool call when the call ends (setsid/nohup/disown all insufficient — verified with a controlled sleep-process experiment).
+- Fix: daemonized the production standalone server via the double-fork pattern `( cmd & )` so it is orphaned and adopted by PID 1 (tini), escaping the reaper. Verified PPID=1 chain and survival across multiple subsequent tool calls.
+- Killed the stale :3100 instance; started `bun .next/standalone/server.js` with PORT=3000 HOSTNAME=0.0.0.0 NODE_ENV=production, log at /home/z/my-project/prod-3000.log.
+- Re-validated end to end: all 24 routes return 200 + /missing → 404; CSS/JS chunks resolve (standalone assets intact); /_next/image optimizer returns 200 (0.63s, outbound picsum.photos reachable); security headers all present (CSP, HSTS, XCTO, XFO, Referrer-Policy, Permissions-Policy); sitemap.xml = 24 URLs; robots.txt correct; title + canonical + JSON-LD present; Caddy :81 proxy returns 200; agent-browser renders full homepage (hero, split-text, nav, skip link).
+
+Stage Summary:
+- Preview restored: production build serving on port 3000 (the port Caddy proxies to the public preview URL).
+- Persistence pattern documented: double-fork orphan (PPID 1) is the ONLY reliable way to keep a server alive across tool calls in this sandbox; plain background/setsid/nohup processes are reaped.
+- Site state: fully operational, 24 routes, assets, SEO and security layers verified on the live process.

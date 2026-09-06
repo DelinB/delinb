@@ -1,4 +1,4 @@
-import { Poppins, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/system/theme-provider';
@@ -12,16 +12,29 @@ import { JsonLd } from '@/components/seo/json-ld';
 import { personJsonLd, websiteJsonLd } from '@/lib/schema';
 import { SITE } from '@/lib/site';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+/*
+ * Self-hosted fonts via next/font/local (files in ./fonts/, latin subset,
+ * identical weights/coverage to the source design). Local files are used
+ * instead of next/font/google so production builds never require network
+ * access to fonts.googleapis.com / fonts.gstatic.com (offline-deterministic
+ * builds — required for restricted networks).
+ */
+const poppins = localFont({
+  src: [
+    { path: './fonts/poppins-latin-300-normal.woff2', weight: '300', style: 'normal' },
+    { path: './fonts/poppins-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/poppins-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/poppins-latin-600-normal.woff2', weight: '600', style: 'normal' },
+  ],
   variable: '--font-poppins',
   display: 'swap',
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
+const jetbrainsMono = localFont({
+  src: [
+    { path: './fonts/jetbrains-mono-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/jetbrains-mono-latin-500-normal.woff2', weight: '500', style: 'normal' },
+  ],
   variable: '--font-jetbrains-mono',
   display: 'swap',
 });
@@ -68,15 +81,20 @@ export const viewport: Viewport = {
  * flags JS availability (drives reveal styling), restores the stored theme
  * before first paint to avoid a flash, and marks dark-hero routes.
  */
-const BOOT_SCRIPT = `document.documentElement.className="js";if(location.pathname==="/")document.documentElement.dataset.darkhero="1";`;
+const BOOT_SCRIPT = `document.documentElement.classList.add("js");if(location.pathname==="/")document.documentElement.dataset.darkhero="1";`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+      className={`${poppins.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
       </head>
-      <body className={`${poppins.variable} ${jetbrainsMono.variable}`}>
+      <body>
         <ThemeProvider>
           <ToastProvider>
             <SphereBackground />

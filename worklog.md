@@ -40,3 +40,21 @@ Stage Summary:
 - Preview restored: production build serving on port 3000 (the port Caddy proxies to the public preview URL).
 - Persistence pattern documented: double-fork orphan (PPID 1) is the ONLY reliable way to keep a server alive across tool calls in this sandbox; plain background/setsid/nohup processes are reaped.
 - Site state: fully operational, 24 routes, assets, SEO and security layers verified on the live process.
+
+---
+Task ID: 3
+Agent: Super Z (main agent)
+Task: User's local `npm run build` failed — Turbopack could not fetch JetBrains Mono from fonts.gstatic.com (restricted network). Fix the build and harden fonts.
+
+Work Log:
+- Root cause: layout.tsx used next/font/google (Poppins 300/400/500/600 + JetBrains Mono 400/500, latin). next/font/google downloads woff2 at build time; on the user's network fonts.gstatic.com times out → Turbopack "Module not found: @vercel/turbopack-next/internal/font/google/font" build errors.
+- Fix 1 (offline build): wrote scripts/download-fonts.js (fetches Google Fonts CSS with browser UA, parses latin-subset woff2 URLs, verifies sizes); downloaded 6 woff2 files into src/app/fonts/ (100KB total); switched layout.tsx to next/font/local with identical weights/subsets/variables/display. Build now touches zero font CDNs.
+- Fix 2 (font rendering bug found during verification): font variable classes were on <body> while globals.css declares --sans/--mono on :root → var(--font-poppins) undefined at :root scope → --sans computed guaranteed-invalid → body fell back to Tailwind's system stack; the site had silently rendered in system fonts since migration. Moved the variable classes to <html> (standard next/font pattern); verified computed body font = "poppins, 'poppins Fallback', -apple-system…", document.fonts.check true for all 4 weights, 6 FontFaces loaded.
+- Fix 3 (interaction bug): BOOT_SCRIPT did documentElement.className="js" (full overwrite) which would have wiped the font classes from <html> at runtime; changed to classList.add("js").
+- Verified: clean rebuild (28 pages, no font warnings), server restarted on :3000, fonts serve as font/woff2 with preload links, no hydration errors on fresh loads (earlier console error was stale dev-mode history from a previous browser session), light/dark screenshots saved to download/validation/font-fix-{light,dark}.png, mono font confirmed on /playground.
+- Committed as d219943 "fix: offline-deterministic build + font rendering fix" (no git remote — platform syncs the workspace clone).
+
+Stage Summary:
+- `npm run build` now works fully offline; fonts are committed artifacts (deterministic builds).
+- Real visual regression fixed: site now renders in Poppins/JetBrains Mono as designed (was system fonts since migration).
+- User action to pick up the fix: pull/sync the workspace, then run `npm run build` locally.

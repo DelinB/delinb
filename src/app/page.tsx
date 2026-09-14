@@ -48,57 +48,80 @@ export default function HomePage() {
       <JsonLd data={webPageJsonLd('/', 'Delin B — Frontend Developer', SITE.description)} />
 
       {/* ============ HERO ============ */}
-      <section className="hero">
-        <div className="hero-index" aria-hidden="true">
-          <span>01</span>
-          <span className="rule" />
-          <span>02</span>
-          <span className="rule" />
-          <span>03</span>
-        </div>
-        <SocialRail />
-        <div className="hero-inner">
-          <p className="hero-eyebrow">DELIN B — FRONTEND DEVELOPER · CHENNAI</p>
-          <h1 className="hero-title">
-            <div>Interfaces that</div>
-            <div className="l2">load fast, feel</div>
-            <div className="l3">
-              <span className="thin">human, and</span> last.
-            </div>
-          </h1>
-          <div className="hero-row">
-            <div className="hero-info">
-              <div className="avail">
-                <i className="dot" aria-hidden="true" />
-                Available for new projects
-              </div>
-              <p className="hero-quote">
-                <span className="bracket">[</span>
-                <span className="hq-text">
-                  <SplitText mode="letters" manual>
-                    I turn ambiguous designs and heavy requirements into fast, accessible,
-                    maintainable frontend — React, Next.js, TypeScript.
-                  </SplitText>
-                </span>
-                <span className="bracket">]</span>
-              </p>
-              <p className="drag-hint">Drag the background — it rotates</p>
-            </div>
-            <div className="hero-ctas">
-              <Link className="btn" href="/projects">
-                View Projects
-              </Link>
-              <CvButton />
-            </div>
-          </div>
-          <div className="hero-stats">
-            <StatNum count={6} suffix="+" label="Years building production frontend for products and clients." />
-            <StatNum count={42} label="Projects shipped — landing pages to design systems." />
-            <StatNum count={96} label="Median Lighthouse performance across my last ten launches." />
-          </div>
-        </div>
-      </section>
+     <section className="hero">
+  <div className="hero-index">
+    {/* SlideDeck injects the buttons; labels should be meaningful */}
+    <span>01</span>
+    <span className="rule" />
+    <span>02</span>
+    <span className="rule" />
+    <span>03</span>
+  </div>
 
+  <SocialRail />
+
+  <div className="hero-inner">
+    <p className="hero-eyebrow">DELIN B · FRONTEND ENGINEER · CHENNAI, IN</p>
+
+    <h1 className="hero-title">
+      <div>Interfaces that</div>
+      <div className="l2">load fast, feel</div>
+      <div className="l3">
+        <span className="thin">human, and built</span> to last.
+      </div>
+    </h1>
+
+    <div className="hero-row">
+      <div className="hero-info">
+        <div className="avail">
+          <i className="dot" aria-hidden="true" />
+          Available for new work · replies within a day
+        </div>
+
+        <p className="hero-quote">
+          <span className="bracket">[</span>
+          <span className="hq-text">
+            <SplitText mode="letters" manual>
+              You have a design that half-works and a deadline that doesn&rsquo;t
+              move. I build the React and TypeScript that ships on time, loads
+              fast, and is still readable a year later.
+            </SplitText>
+          </span>
+          <span className="bracket">]</span>
+        </p>
+
+        <p className="drag-hint">Scroll or press ↓ — the background rotates as you go</p>
+      </div>
+
+      <div className="hero-ctas">
+        <Link className="btn" href="/contact">
+          Start a project
+        </Link>
+        <Link className="btn btn-ghost" href="/projects">
+          View work
+        </Link>
+        <CvButton />
+      </div>
+    </div>
+
+    <div className="hero-stats">
+      <StatNum
+        count={6}
+        suffix="+"
+        label="Years shipping production UI — startups, agencies, and one very large bank."
+      />
+      <StatNum
+        count={42}
+        label="Projects delivered — marketing sites to full design systems."
+      />
+      <StatNum
+        count={95}
+        suffix="+"
+        label="Lighthouse performance on every launch in the last two years."
+      />
+    </div>
+  </div>
+</section>
       {/* ============ TICKER ============ */}
       <div className="ticker" aria-hidden="true">
         <div className="tk-track">

@@ -96,10 +96,7 @@ export function SiteChrome() {
             })}
           </nav>
           <div className="hd-actions">
-            <span className="hd-status">
-              <i className="dot" aria-hidden="true" />
-              Available
-            </span>
+            
             <button
               className="hd-theme"
               aria-label="Toggle dark mode"

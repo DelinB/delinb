@@ -2205,7 +2205,7 @@ function pageContact(){
           <a href="mailto:${EMAIL}">${EMAIL}</a>
           <button class="mini-btn" data-copy="${EMAIL}" data-msg="Email copied — talk soon." style="margin-left:10px">copy</button>
         </div>
-        <div class="ci-row"><b>LinkedIn</b><a href="https://www.linkedin.com/in/delinb" target="_blank" rel="noopener">linkedin.com/in/delinb ↗</a></div>
+        <div class="ci-row"><b>LinkedIn</b><a href="https://www.linkedin.com/in/delinb" target="_blank" rel="noopener">https://www.linkedin.com/in/delin-webdev/  ↗</a></div>
         <div class="ci-row"><b>GitHub</b><a href="https://github.com/delinb" target="_blank" rel="noopener">github.com/delinb ↗</a></div>
         <div class="ci-row"><b>Location</b><span>Chennai, India · IST (UTC+5:30)</span></div>
         <div class="ci-row"><b>Availability</b><span><i class="dot" style="margin-right:8px"></i>Open to freelance & selective full-time</span></div>

@@ -44,7 +44,7 @@ export default function ContactPage() {
                 <b>Email</b>
                 <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
                 <CopyButton
-                  className="mini-btn"
+                  className="mini-btn !ml-3"
                   text={SITE.email}
                   message="Email copied — talk soon."
                   ariaLabel="Copy email address"
@@ -55,7 +55,7 @@ export default function ContactPage() {
               <div className="ci-row">
                 <b>LinkedIn</b>
                 <a href={SITE.socials.linkedin} target="_blank" rel="noopener noreferrer">
-                  linkedin.com/in/delinb ↗
+                  https://www.linkedin.com/in/delin-webdev/  ↗
                 </a>
               </div>
               <div className="ci-row">

@@ -147,7 +147,7 @@ export default function HomePage() {
                 the design <span className="muted">and</span> the API docs.
               </>
             }
-            desc="Six years in, I still read error messages end to end. Performance, accessibility and motion are product features — I treat them that way from the first commit."
+            desc="Two years in, I still read error messages end to end. Performance, accessibility and motion are product features — I treat them that way from the first commit."
             link={['/about', 'More about me']}
           />
           <div className="split" data-reveal>

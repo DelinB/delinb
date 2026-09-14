@@ -4,7 +4,7 @@ export const SITE = {
   description:
     'Delin B — frontend developer in Chennai building fast, accessible, precisely-crafted interfaces with React, Next.js, TypeScript and GSAP.',
   url: 'https://delinb.dev',
-  email: 'hello@delinb.dev',
+  email: 'delinb23@gmail.com',
   location: 'Chennai, India',
   timezone: 'IST (UTC+5:30)',
   socials: {

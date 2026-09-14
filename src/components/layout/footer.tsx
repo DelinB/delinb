@@ -53,9 +53,9 @@ export function Footer() {
           </div>
         </div>
         <div className="ft-bar">
-          <span>© 2025 Delin B · Designed &amp; developed by Delin B</span>
+          <span>© 2026 Delin B · Designed &amp; developed by Delin B</span>
           <span>Chennai, India · IST (UTC+5:30)</span>
-          <span>Last updated Jul 2025 · ⌘K to search</span>
+          <span>Last updated Jul 2026 · ⌘K to search</span>
         </div>
       </div>
     </footer>

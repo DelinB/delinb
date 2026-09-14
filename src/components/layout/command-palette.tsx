@@ -31,7 +31,7 @@ function buildIndex(): PaletteItem[] {
   POSTS.forEach((p) =>
     items.push({ g: 'Writing', t: p.title, s: p.cat.toLowerCase(), go: `/blog/${p.slug}` })
   );
-  items.push({ g: 'Actions', t: 'Copy email address', s: 'hello@delinb.dev', act: 'copy' });
+  items.push({ g: 'Actions', t: 'Copy email address', s: 'delinb23@gmail.com', act: 'copy' });
   items.push({ g: 'Actions', t: 'Download résumé (PDF)', s: 'print', go: '/resume', act: 'print' });
   items.push({ g: 'Actions', t: 'Toggle dark mode', s: 'theme', act: 'theme' });
   return items;

@@ -828,14 +828,14 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;background:var(--car
         <a href="https://github.com/delinb" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/delinb" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://x.com/delinb_dev" target="_blank" rel="noopener">X / Twitter</a>
-        <a href="mailto:hello@delinb.dev">hello@delinb.dev</a>
+        <a href="mailto:delinb23@gmail.com">delinb23@gmail.com</a>
         <a href="#/resume">Resume</a>
       </div>
     </div>
     <div class="ft-bar">
-      <span>© 2025 Delin B · Designed &amp; developed by Delin B</span>
+      <span>© 2026 Delin B · Designed &amp; developed by Delin B</span>
       <span>Chennai, India · IST (UTC+5:30)</span>
-      <span>Last updated Jul 2025 · ⌘K to search</span>
+      <span>Last updated Jul 2026 · ⌘K to search</span>
     </div>
   </div>
 </footer>
@@ -854,7 +854,7 @@ const seedImg = (seed,w,h) => `https://picsum.photos/seed/${seed}/${w}/${h}.jpg`
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const fmtDate = d => new Date(d+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
 const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-const EMAIL = 'hello@delinb.dev';
+const EMAIL = 'delinb23@gmail.com';
 let cleanupFns = [];
 let GLYPH_RGB = '20,20,25';
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1477,7 +1477,7 @@ const socialLinks = () => `
   <a href="https://github.com/delinb" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.56C20.22 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
   <a href="https://www.linkedin.com/in/delinb" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4.9v15.5H.5V8zm7.5 0h4.7v2.1h.1c.7-1.2 2.3-2.5 4.7-2.5 5 0 5.9 3.3 5.9 7.5v8.4h-4.9v-7.5c0-1.8 0-4-2.5-4s-2.8 1.9-2.8 3.9v7.6H8V8z"/></svg></a>
   <a href="https://x.com/delinb_dev" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23z"/></svg></a>
-  <a href="mailto:hello@delinb.dev" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></a>`;
+  <a href="mailto:delinb23@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></a>`;
 
 /* Section head: eyebrow + side fade with data-reveal, the title itself
    gets the GSAP split-text word rise (see [data-split] engine). */
@@ -1756,7 +1756,7 @@ function pageHome(){
     <h2 class="band-title" data-split="letters" data-shift="12" data-blur="3" data-dur="0.4" data-stagger="0.012">Have an idea?<br>Let's build something <span class="muted">exceptional.</span></h2>
     <div data-reveal style="--d:180ms" class="hero-ctas">
       <a class="btn" href="#/contact">Start a project</a>
-      <button class="btn ghost" data-copy="${EMAIL}" data-msg="Email copied — talk soon.">hello@delinb.dev</button>
+      <button class="btn ghost" data-copy="${EMAIL}" data-msg="Email copied — talk soon.">delinb23@gmail.com</button>
     </div>
   </div></section>`;
 }
@@ -2044,7 +2044,7 @@ function pageResume(){
       <div class="r-head">
         <p class="r-name">DELIN B</p>
         <p class="r-role">Frontend Developer</p>
-        <p class="r-contact">Chennai, India (IST · UTC+5:30) · hello@delinb.dev · delinb.dev<br>github.com/delinb · linkedin.com/in/delinb</p>
+        <p class="r-contact">Chennai, India (IST · UTC+5:30) · delinb23@gmail.com · delinb.dev<br>github.com/delinb · linkedin.com/in/delinb</p>
       </div>
       <div class="r-sec"><h2>Summary</h2>
         <p>Frontend developer with six years across product, studio and agency work. Leads frontend architecture, design systems and performance programs. Ships interfaces that are fast, accessible and maintainable — and proves all three with numbers.</p>
@@ -3151,7 +3151,7 @@ function buildCmdIndex(){
   pages.forEach(p=>items.push({g:'Pages',t:p[0],s:'page',go:p[1]}));
   PROJECTS.forEach(p=>items.push({g:'Projects',t:p.name,s:p.cat.toLowerCase(),go:'#/projects/'+p.slug}));
   POSTS.forEach(p=>items.push({g:'Writing',t:p.title,s:p.cat.toLowerCase(),go:'#/blog/'+p.slug}));
-  items.push({g:'Actions',t:'Copy email address',s:'hello@delinb.dev',act:'copy'});
+  items.push({g:'Actions',t:'Copy email address',s:'delinb23@gmail.com',act:'copy'});
   items.push({g:'Actions',t:'Download résumé (PDF)',s:'print',go:'#/resume',act:'print'});
   items.push({g:'Actions',t:'Toggle dark mode',s:'theme',act:'theme'});
   return items;
